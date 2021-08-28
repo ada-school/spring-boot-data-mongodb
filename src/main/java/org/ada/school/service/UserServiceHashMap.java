@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceHashMap
@@ -24,13 +25,13 @@ public class UserServiceHashMap
     }
 
     @Override
-    public User findById( String id )
+    public Optional<User> findById( String id )
     {
         if ( usersMap.containsKey( id ) )
         {
-            return usersMap.get( id );
+            return Optional.ofNullable(usersMap.get( id ));
         }
-        return null;
+        return Optional.empty();
     }
 
     @Override
