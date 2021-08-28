@@ -2,6 +2,7 @@ plugins {
   id 'org.springframework.boot' version '2.5.3'
   id 'io.spring.dependency-management' version '1.0.11.RELEASE'
   id 'java'
+  id "io.freefair.lombok" version "6.1.0"
 }
 
 group = 'org.ada.school'
@@ -15,7 +16,15 @@ repositories {
 dependencies {
   implementation 'org.springframework.boot:spring-boot-starter-web'
   implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+  implementation 'org.projectlombok:lombok:1.18.20'
   testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+  compileOnly 'org.projectlombok:lombok:1.18.20'
+  annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+  testCompileOnly 'org.projectlombok:lombok:1.18.20'
+  testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
+
 }
 
 test {

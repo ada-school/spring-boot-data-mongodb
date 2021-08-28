@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
-@Service
 public class UserServiceHashMap
     implements UserService
 {
