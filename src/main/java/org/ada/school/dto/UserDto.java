@@ -1,29 +1,16 @@
 package org.ada.school.dto;
 
-public class UserDto
-{
-    String name;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-    String email;
+@Getter
+@NoArgsConstructor
+public class UserDto {
 
-    String lastName;
+	String name;
 
-    public UserDto()
-    {
-    }
+	String email;
 
-    public String getName()
-    {
-        return name;
-    }
+	String lastName;
 
-    public String getEmail()
-    {
-        return email;
-    }
-
-    public String getLastName()
-    {
-        return lastName;
-    }
 }
