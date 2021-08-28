@@ -1,64 +1,56 @@
 package org.ada.school.service;
 
-import org.ada.school.dto.UserDto;
-import org.ada.school.model.User;
-import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.ada.school.dto.UserDto;
+import org.ada.school.model.User;
+import org.springframework.stereotype.Service;
+
 @Service
-public class UserServiceHashMap
-    implements UserService
-{
+public class UserServiceHashMap implements UserService {
 
-    private final HashMap<String, User> usersMap = new HashMap<>();
+	private final HashMap<String, User> usersMap = new HashMap<>();
 
+	@Override
+	public User create(User user) {
 
-    @Override
-    public User create( User user )
-    {
-        usersMap.put( user.getId(), user );
-        return user;
-    }
+		usersMap.put(user.getId(), user);
+		return user;
+	}
 
-    @Override
-    public User findById( String id )
-    {
-        if ( usersMap.containsKey( id ) )
-        {
-            return usersMap.get( id );
-        }
-        return null;
-    }
+	@Override
+	public User findById(String id) {
 
-    @Override
-    public List<User> all()
-    {
-        return new ArrayList<>( usersMap.values() );
-    }
+		if (usersMap.containsKey(id)) {
+			return usersMap.get(id);
+		}
+		return null;
+	}
 
-    @Override
-    public boolean deleteById( String id )
-    {
-        return usersMap.remove( id ) != null;
-    }
+	@Override
+	public List<User> all() {
 
-    @Override
-    public User update( UserDto userDto, String id )
-    {
-        if ( usersMap.containsKey( id ) )
-        {
-            User user = usersMap.get( id );
-            user.update( userDto );
-            return user;
-        }
-        else
-        {
-            return null;
-        }
-    }
+		return new ArrayList<>(usersMap.values());
+	}
 
+	@Override
+	public boolean deleteById(String id) {
+
+		return usersMap.remove(id) != null;
+	}
+
+	@Override
+	public User update(UserDto userDto, String id) {
+
+		if (usersMap.containsKey(id)) {
+			User user = usersMap.get(id);
+			user.update(userDto);
+			return user;
+		} else {
+			return null;
+		}
+	}
 
 }
