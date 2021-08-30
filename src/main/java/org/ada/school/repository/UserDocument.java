@@ -1,6 +1,7 @@
 package org.ada.school.repository;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.ada.school.model.User;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -9,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 
 @Document
-@Getter
+@Getter @Setter
 public class UserDocument {
     @Id
     String id;

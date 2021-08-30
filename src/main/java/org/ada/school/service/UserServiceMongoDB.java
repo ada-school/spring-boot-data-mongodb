@@ -7,6 +7,7 @@ import org.ada.school.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -59,5 +60,15 @@ public class UserServiceMongoDB implements UserService {
             create(user);
         }
         return user;
+    }
+
+    @Override
+    public List<User> findUsersWithNameOrLastNameLike(String queryText) {
+        return userRepository.findUsersWithNameOrLastNameLike(queryText);
+    }
+
+    @Override
+    public List<User> findUsersCreatedAfter(Date startDate) {
+        return userRepository.findUsersCreatedAfter(startDate);
     }
 }
