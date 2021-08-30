@@ -1,4 +1,4 @@
-package org.ada.school.controller;
+package edu.eci.user-api.controller;
 
 import org.ada.school.dto.UserDto;
 import org.ada.school.model.User;
