@@ -1,6 +1,6 @@
-package edu.eci.user-api.model;
+package edu.eci.userapi.model;
 
-import org.ada.school.dto.UserDto;
+import edu.eci.userapi.dto.UserDto;
 
 import java.util.Date;
 import java.util.UUID;

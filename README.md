@@ -1,6 +1,3 @@
-<img align="right" src="https://github.com/ada-school/module-template/blob/main/ada.png">
-
-
 ## Spring Boot Data with MongoDB
 
 **Learning Objectives**
@@ -10,29 +7,10 @@
 - Create a MongoDB Cluster on Atlas.
 - Connect your Spring Boot project with a MongoDB Cluster.
 
-
-## Detail Orientation 🤹🏽
-
-Read the following document [Attention to details](https://www.csu.edu/humanresources/empdev/documents/AttentiontoDetail.pdf) 
-
-**Main Topics**
-
-* NoSQL.
-* MongoDB.
-* Cluster.
-
-
-
 ## Codelab 🧪
-
-🗣️ "I hear and I forget I see and I remember I do and I understand." Confucius
-
-
 
 
 ### Part 1: Creating your Atlas account and first cluster:
-
-If you haven't created your MongoDB Cluster follow part 1 - 4:
 
 * [Get Started with Atlas](https://docs.atlas.mongodb.com/getting-started/)
 

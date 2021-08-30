@@ -1,8 +1,8 @@
-package edu.eci.user-api.controller;
+package edu.eci.userapi.controller;
 
-import org.ada.school.dto.UserDto;
-import org.ada.school.model.User;
-import org.ada.school.service.UserService;
+import edu.eci.userapi.dto.UserDto;
+import edu.eci.userapi.model.User;
+import edu.eci.userapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping( "/user" )
+@RequestMapping( "/v1/user" )
 public class UserController
 {
 

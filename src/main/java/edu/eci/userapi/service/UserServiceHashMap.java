@@ -1,7 +1,7 @@
-package edu.eci.user-api.service;
+package edu.eci.userapi.service;
 
-import org.ada.school.dto.UserDto;
-import org.ada.school.model.User;
+import edu.eci.userapi.dto.UserDto;
+import edu.eci.userapi.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class UserServiceHashMap
     }
 
     @Override
-    public User update( UserDto userDto, String id )
+    public User update(UserDto userDto, String id )
     {
         if ( usersMap.containsKey( id ) )
         {
