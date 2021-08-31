@@ -1,8 +1,7 @@
 package edu.eci.userapi.service;
 
 import edu.eci.userapi.data.dto.UserDto;
-import edu.eci.userapi.data.document.User;
-import org.springframework.stereotype.Service;
+import edu.eci.userapi.data.repository.UserDocument;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,17 +9,17 @@ import java.util.List;
 
 public class UserServiceHashMap implements UserService {
 
-    private final HashMap<String, User> usersMap = new HashMap<>();
+    private final HashMap<String, UserDocument> usersMap = new HashMap<>();
 
     @Override
-    public User create( User user )
+    public UserDocument create( UserDocument user )
     {
         usersMap.put( user.getId(), user );
         return user;
     }
 
     @Override
-    public User findById( String id )
+    public UserDocument findById( String id )
     {
         if ( usersMap.containsKey( id ) )
         {
@@ -30,7 +29,7 @@ public class UserServiceHashMap implements UserService {
     }
 
     @Override
-    public List<User> all()
+    public List<UserDocument> all()
     {
         return new ArrayList<>( usersMap.values() );
     }
@@ -42,11 +41,11 @@ public class UserServiceHashMap implements UserService {
     }
 
     @Override
-    public User update(UserDto userDto, String id )
+    public UserDocument update(UserDto userDto, String id )
     {
         if ( usersMap.containsKey( id ) )
         {
-            User user = usersMap.get( id );
+            UserDocument user = usersMap.get( id );
             user.update( userDto );
             return user;
         }
@@ -55,6 +54,4 @@ public class UserServiceHashMap implements UserService {
             return null;
         }
     }
-
-
 }

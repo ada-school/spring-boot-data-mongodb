@@ -1,8 +1,8 @@
 package edu.eci.userapi.service;
 
-import edu.eci.userapi.data.document.User;
+import edu.eci.userapi.data.repository.UserDocument;
 import edu.eci.userapi.data.dto.UserDto;
-import edu.eci.userapi.data.repository.UserRespository;
+import edu.eci.userapi.data.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,41 +11,45 @@ import java.util.List;
 @Service
 public class UserServiceMongoDB implements UserService{
 
-    private final UserRespository userRespository;
+    private final UserRepository userRepository;
 
-    public UserServiceMongoDB(@Autowired UserRespository userRespository) {
-        this.userRespository = userRespository;
+    public UserServiceMongoDB(@Autowired UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
-    public User create(User user) {
-        return userRespository.save(user);
+    public UserDocument create(UserDocument user) {
+        return userRepository.save(user);
     }
 
     @Override
-    public User findById(String id) {
-        return userRespository.findById(id).orElse(null);
+    public UserDocument findById(String id) {
+        return userRepository.findById(id).orElse(null);
     }
 
     @Override
-    public List<User> all() {
-        return userRespository.findAll();
+    public List<UserDocument> all() {
+        return userRepository.findAll();
     }
 
     @Override
     public boolean deleteById(String id) {
-        if(userRespository.existsById(id)){
-            userRespository.deleteById(id);
+        if(userRepository.existsById(id)){
+            userRepository.deleteById(id);
             return true;
         }
         return false;
     }
 
     @Override
-    public User update(UserDto userDto, String id) {
-        User oldUser = userRespository.findById(id).orElse(null);
-        oldUser.update(userDto);
-        userRespository.save(oldUser);
+    public UserDocument update(UserDto userDto, String id) {
+        UserDocument oldUser = userRepository.findById(id).orElse(null);
+        if (oldUser!=null){
+            oldUser.update(userDto);
+        }else{
+            throw new NullPointerException("The user requested not exist!");
+        }
+        userRepository.save(oldUser);
         return oldUser;
     }
 }

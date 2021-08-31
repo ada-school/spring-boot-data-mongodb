@@ -1,19 +1,19 @@
 package edu.eci.userapi.service;
 
 import edu.eci.userapi.data.dto.UserDto;
-import edu.eci.userapi.data.document.User;
+import edu.eci.userapi.data.repository.UserDocument;
 
 import java.util.List;
 
 public interface UserService
 {
-    User create(User user );
+    UserDocument create(UserDocument user );
 
-    User findById( String id );
+    UserDocument findById( String id );
 
-    List<User> all();
+    List<UserDocument> all();
 
     boolean deleteById( String id );
 
-    User update(UserDto userDto, String id );
+    UserDocument update(UserDto userDto, String id );
 }
