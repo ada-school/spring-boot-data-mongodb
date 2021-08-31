@@ -44,12 +44,12 @@ public class UserServiceMongoDB implements UserService{
     @Override
     public UserDocument update(UserDto userDto, String id) {
         UserDocument oldUser = userRepository.findById(id).orElse(null);
-        if (oldUser!=null){
-            oldUser.update(userDto);
-        }else{
+        if (oldUser==null) {
             throw new NullPointerException("The user requested not exist!");
+        }else{
+            oldUser.update(userDto);
+            userRepository.save(oldUser);
+            return oldUser;
         }
-        userRepository.save(oldUser);
-        return oldUser;
     }
 }
