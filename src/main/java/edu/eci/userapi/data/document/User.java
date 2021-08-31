@@ -1,13 +1,11 @@
-package edu.eci.userapi.model;
+package edu.eci.userapi.data.document;
 
-import edu.eci.userapi.dto.UserDto;
+import edu.eci.userapi.data.dto.UserDto;
 
 import java.util.Date;
 import java.util.UUID;
 
-public class User
-
-{
+public class User {
 
     String id;
 

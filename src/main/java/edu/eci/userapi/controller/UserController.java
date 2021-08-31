@@ -1,7 +1,7 @@
 package edu.eci.userapi.controller;
 
-import edu.eci.userapi.dto.UserDto;
-import edu.eci.userapi.model.User;
+import edu.eci.userapi.data.dto.UserDto;
+import edu.eci.userapi.data.document.User;
 import edu.eci.userapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

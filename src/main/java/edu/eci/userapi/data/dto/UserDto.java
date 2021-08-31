@@ -1,4 +1,4 @@
-package edu.eci.userapi.dto;
+package edu.eci.userapi.data.dto;
 
 public class UserDto
 {

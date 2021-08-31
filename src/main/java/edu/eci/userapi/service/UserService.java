@@ -1,7 +1,7 @@
 package edu.eci.userapi.service;
 
-import edu.eci.userapi.dto.UserDto;
-import edu.eci.userapi.model.User;
+import edu.eci.userapi.data.dto.UserDto;
+import edu.eci.userapi.data.document.User;
 
 import java.util.List;
 

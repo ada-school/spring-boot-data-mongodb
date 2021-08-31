@@ -1,7 +1,7 @@
 package edu.eci.userapi.service;
 
-import edu.eci.userapi.dto.UserDto;
-import edu.eci.userapi.model.User;
+import edu.eci.userapi.data.dto.UserDto;
+import edu.eci.userapi.data.document.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,12 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 
 @Service
-public class UserServiceHashMap
-    implements UserService
-{
+public class UserServiceHashMap implements UserService {
 
     private final HashMap<String, User> usersMap = new HashMap<>();
-
 
     @Override
     public User create( User user )
