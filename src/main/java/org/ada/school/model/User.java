@@ -3,28 +3,31 @@ package org.ada.school.model;
 import java.util.Date;
 import java.util.UUID;
 
-import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.ada.school.dto.UserDto;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Getter()
+@Getter
+@Document
+@NoArgsConstructor
 public class User {
 
+	@Id
     String id;
 
     String name;
 
-	@Getter(AccessLevel.NONE)
-    String email;
+	@Indexed(unique = true)
+	String email;
 
-	@Getter(AccessLevel.NONE)
-    String lastName;
+	String lastName;
 
-	@Getter(AccessLevel.NONE)
     Date createdAt;
 
-
-    public User( UserDto userDto ) {
+    public User(UserDto userDto) {
 
         id = UUID.randomUUID().toString();
         name = userDto.getName();
@@ -33,8 +36,7 @@ public class User {
         createdAt = new Date();
     }
 
-
-    public void update( UserDto userDto ) {
+    public void update(UserDto userDto) {
 
         name = userDto.getName();
         lastName = userDto.getLastName();
