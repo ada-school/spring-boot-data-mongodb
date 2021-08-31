@@ -3,14 +3,15 @@ package org.ada.school.repository;
 import java.util.Date;
 import java.util.List;
 
+import org.ada.school.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface UserRepository extends MongoRepository<UserDocument, String> {
+public interface UserRepository extends MongoRepository<User, String> {
 
-	List<UserDocument> findByNameOrLastNameIsLike(final String name, final String lastName);
+	List<User> findByNameOrLastNameIsLike(final String name, final String lastName);
 
-	List<UserDocument> findByCreatedAtAfter(final Date createdAt);
+	List<User> findByCreatedAtAfter(final Date createdAt);
 
 }
