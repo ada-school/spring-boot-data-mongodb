@@ -4,9 +4,11 @@ import edu.eci.userapi.data.document.User;
 import edu.eci.userapi.data.dto.UserDto;
 import edu.eci.userapi.data.repository.UserRespository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceMongoDB implements UserService{
 
     private final UserRespository userRespository;
@@ -17,26 +19,33 @@ public class UserServiceMongoDB implements UserService{
 
     @Override
     public User create(User user) {
-        return null;
+        return userRespository.save(user);
     }
 
     @Override
     public User findById(String id) {
-        return null;
+        return userRespository.findById(id).orElse(null);
     }
 
     @Override
     public List<User> all() {
-        return null;
+        return userRespository.findAll();
     }
 
     @Override
     public boolean deleteById(String id) {
+        if(userRespository.existsById(id)){
+            userRespository.deleteById(id);
+            return true;
+        }
         return false;
     }
 
     @Override
     public User update(UserDto userDto, String id) {
-        return null;
+        User oldUser = userRespository.findById(id).orElse(null);
+        oldUser.update(userDto);
+        userRespository.save(oldUser);
+        return oldUser;
     }
 }

@@ -41,7 +41,6 @@ public class UserController
         return ResponseEntity.ok( userService.findById( id ) );
     }
 
-
     @PostMapping
     public ResponseEntity<User> create( @RequestBody UserDto userDto )
     {
