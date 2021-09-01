@@ -4,6 +4,7 @@ import edu.eci.userapi.data.dto.UserDto;
 import edu.eci.userapi.data.repository.UserDocument;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -53,5 +54,15 @@ public class UserServiceHashMap implements UserService {
         {
             return null;
         }
+    }
+
+    @Override
+    public List<UserDocument> findUsersWithNameOrLastNameLike(String queryText) {
+        return null;
+    }
+
+    @Override
+    public List<UserDocument> findUsersCreatedAfter(Date startDate) {
+        return null;
     }
 }

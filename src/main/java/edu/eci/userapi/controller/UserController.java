@@ -41,6 +41,12 @@ public class UserController
         return ResponseEntity.ok( userService.findById( id ) );
     }
 
+    @GetMapping( "/nameOrLastName/{queryText}" )
+    public ResponseEntity<List<UserDocument>> findUsersWithNameOrLastNameLike( @PathVariable String queryText )
+    {
+        return ResponseEntity.ok( userService.findUsersWithNameOrLastNameLike( queryText ) );
+    }
+
     @PostMapping
     public ResponseEntity<UserDocument> create( @RequestBody UserDto userDto )
     {

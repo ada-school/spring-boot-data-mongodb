@@ -6,6 +6,7 @@ import edu.eci.userapi.data.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -51,5 +52,15 @@ public class UserServiceMongoDB implements UserService{
             userRepository.save(oldUser);
             return oldUser;
         }
+    }
+
+    @Override
+    public List<UserDocument> findUsersWithNameOrLastNameLike(String queryText) {
+        return userRepository.findUsersWithNameOrLastNameLike(queryText);
+    }
+
+    @Override
+    public List<UserDocument> findUsersCreatedAfter(Date startDate) {
+        return null;
     }
 }
