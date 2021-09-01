@@ -21,19 +21,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * User Controller class
+ *
+ * @author Andres Calderon (andres.calderon@escuelaing.edu.co)
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 @Slf4j
 @RestController
 @RequestMapping("/v1/user")
 public class UserController {
 
+	/**
+	 * The {@link UserService}
+	 */
 	private final UserService userService;
 
+	/**
+	 * Constructor
+	 *
+	 * @param userService The {@link UserService}
+	 */
 	@Autowired
 	public UserController(@Qualifier("userServiceMongoDB") UserService userService) {
 
 		this.userService = userService;
 	}
 
+	/**
+	 * Get All endpoint
+	 *
+	 * @return List of the {@link User} saved in the server
+	 */
 	@GetMapping
 	public ResponseEntity<List<User>> all() {
 
@@ -45,6 +65,12 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * Get findById endpoint
+	 *
+	 * @param id The id of the {@link User} to be found
+	 * @return The {@link User} found
+	 */
 	@GetMapping("/{id}")
 	public ResponseEntity<User> findById(@PathVariable String id) {
 
@@ -56,6 +82,12 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * Post create endpoint
+	 *
+	 * @param userDto The {@link UserDto} to be saved
+	 * @return The {@link User} saved in the server
+	 */
 	@PostMapping
 	public ResponseEntity<User> create(@RequestBody UserDto userDto) {
 
@@ -67,6 +99,13 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * Put update endpoint
+	 *
+	 * @param userDto The {@link UserDto} to be updated
+	 * @param id      The {@link User} id to be updated
+	 * @return The {@link User} after being updated
+	 */
 	@PutMapping("/{id}")
 	public ResponseEntity<User> update(@RequestBody UserDto userDto, @PathVariable String id) {
 
@@ -78,6 +117,12 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * Delete delete endpoint
+	 *
+	 * @param id The {@link User} id to be deleted
+	 * @return If the {@link User} has been deleted
+	 */
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Boolean> delete(@PathVariable String id) {
 
@@ -89,6 +134,12 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * Find Users With Name Or LastName Like endpoint
+	 *
+	 * @param nameOrLastname Name or Lastname of the {@link User}
+	 * @return The {@link User} list found in the server
+	 */
 	@GetMapping("/NameOrLastname/{nameOrLastname}")
 	public ResponseEntity<List<User>> findUsersWithNameOrLastNameLike(@PathVariable String nameOrLastname) {
 
@@ -100,8 +151,14 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * Find Users Created After endpoint
+	 *
+	 * @param createdAfter Minimum date of creation the Users
+	 * @return The {@link User} list found in the server
+	 */
 	@GetMapping("/createdAfter/{createdAfter}")
-	public ResponseEntity<List<User>> findUsersWithNameOrLastNameLike(
+	public ResponseEntity<List<User>> findUsersCreatedAfter(
 			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date createdAfter) {
 
 		try {
