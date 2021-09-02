@@ -23,4 +23,12 @@ public class UserDocument
     public UserDocument()
     {
     }
+
+    public UserDocument(String id, String name, String email, String lastName, Date createdAt) {
+        this.id=id;
+        this.name=name;
+        this.email=email;
+        this.lastName=lastName;
+        this.createdAt=createdAt;
+    }
 }
