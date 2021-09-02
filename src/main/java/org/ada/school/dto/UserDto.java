@@ -1,4 +1,4 @@
-package edu.eci.userapi.data.dto;
+package org.ada.school.dto;
 
 public class UserDto
 {
