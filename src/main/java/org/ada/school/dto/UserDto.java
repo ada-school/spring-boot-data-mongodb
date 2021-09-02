@@ -1,29 +1,32 @@
 package org.ada.school.dto;
 
-public class UserDto
-{
+import java.util.Date;
+
+public class UserDto {
     String name;
 
     String email;
 
     String lastName;
 
-    public UserDto()
-    {
+    Date createdAt;
+
+    public UserDto() {
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public String getEmail()
-    {
+    public String getEmail() {
         return email;
     }
 
-    public String getLastName()
-    {
+    public String getLastName() {
         return lastName;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
     }
 }

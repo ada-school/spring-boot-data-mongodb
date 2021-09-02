@@ -29,6 +29,18 @@ public class User
         createdAt = new Date();
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
     public String getName()
     {
         return name;
