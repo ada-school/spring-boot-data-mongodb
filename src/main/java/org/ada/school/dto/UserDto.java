@@ -1,5 +1,7 @@
 package org.ada.school.dto;
 
+import org.ada.school.repository.UserDocument;
+
 public class UserDto
 {
     String name;
@@ -11,6 +13,7 @@ public class UserDto
     public UserDto()
     {
     }
+
 
     public String getName()
     {
