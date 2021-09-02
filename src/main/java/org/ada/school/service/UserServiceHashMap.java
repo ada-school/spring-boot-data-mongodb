@@ -62,13 +62,25 @@ public class UserServiceHashMap implements UserService
 
     @Override
     public List<User> findUsersWithNameOrLastNameLike(String queryText) {
-        return null;
+        List<User> users = new ArrayList<>();
+        for (User user : usersMap.values()) {
+            if (user.getName().equals(queryText) || user.getLastName().equals(queryText)) {
+                users.add(user);
+            }
+        }
+        return users;
     }
+
 
     @Override
     public List<User> findUsersCreatedAfter(Date startDate) {
-        return null;
+        List<User> users = new ArrayList<>();
+        for (User user : usersMap.values()) {
+            if (user.getCreatedAt().after(startDate)) {
+                users.add(user);
+            }
+        }
+
+        return users;
     }
-
-
 }
