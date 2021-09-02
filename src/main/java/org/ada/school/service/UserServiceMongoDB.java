@@ -1,11 +1,14 @@
-package org.ada.school.repository;
+package org.ada.school.service;
 import org.ada.school.dto.UserDto;
 import org.ada.school.model.User;
+import org.ada.school.repository.UserRepository;
 import org.ada.school.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
-
+@Service
 public class UserServiceMongoDB implements UserService
 {
 
@@ -43,6 +46,16 @@ public class UserServiceMongoDB implements UserService
     @Override
     public User update(UserDto userDto, String id )
     {
+        return null;
+    }
+
+    @Override
+    public List<User> findUsersWithNameOrLastNameLike(String queryText) {
+        return null;
+    }
+
+    @Override
+    public List<User> findUsersCreatedAfter(Date startDate) {
         return null;
     }
 }
