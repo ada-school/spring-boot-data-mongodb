@@ -4,11 +4,8 @@ import org.ada.school.dto.UserDto;
 import org.ada.school.model.User;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
-@Service
 public class UserServiceHashMap
     implements UserService
 {
@@ -24,13 +21,13 @@ public class UserServiceHashMap
     }
 
     @Override
-    public User findById( String id )
+    public Optional<User> findById( String id )
     {
         if ( usersMap.containsKey( id ) )
         {
-            return usersMap.get( id );
+            return Optional.ofNullable(usersMap.get( id ));
         }
-        return null;
+        return Optional.empty();
     }
 
     @Override
@@ -58,6 +55,16 @@ public class UserServiceHashMap
         {
             return null;
         }
+    }
+
+    @Override
+    public List<User> findUsersWithNameOrLastNameLike(String queryText) {
+        return null;
+    }
+
+    @Override
+    public List<User> findUsersCreatedAfter(Date startDate) {
+        return null;
     }
 
 

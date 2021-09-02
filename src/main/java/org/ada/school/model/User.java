@@ -1,10 +1,14 @@
 package org.ada.school.model;
 
+
+import lombok.Getter;
 import org.ada.school.dto.UserDto;
+import org.ada.school.repository.UserDocument;
 
 import java.util.Date;
 import java.util.UUID;
 
+@Getter
 public class User
 
 {
@@ -18,6 +22,14 @@ public class User
     String lastName;
 
     Date createdAt;
+
+    public User(UserDocument userDocument) {
+        id = userDocument.getId();
+        name = userDocument.getName();
+        email = userDocument.getEmail();
+        lastName = userDocument.getLastName();
+        createdAt = userDocument.getCreatedAt();
+    }
 
 
     public User( UserDto userDto )

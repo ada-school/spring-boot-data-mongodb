@@ -1,5 +1,8 @@
 package org.ada.school.dto;
 
+import lombok.Setter;
+
+@Setter
 public class UserDto
 {
     String name;
