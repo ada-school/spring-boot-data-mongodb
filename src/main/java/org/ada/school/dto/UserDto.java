@@ -2,28 +2,38 @@ package org.ada.school.dto;
 
 public class UserDto
 {
-    String name;
+    private String name, email, lastName;
 
-    String email;
 
-    String lastName;
+    public UserDto(String name, String email, String lastName){
 
-    public UserDto()
-    {
+        this.name=name;
+        this.email=email;
+        this.lastName=lastName;
+
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public String getEmail()
-    {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
         return email;
     }
 
-    public String getLastName()
-    {
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLastName() {
         return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
