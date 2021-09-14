@@ -9,24 +9,33 @@ public class User
 
 {
 
-    String id;
+    private String id;
 
-    String name;
+    private String name;
 
-    String email;
+    private String email;
 
-    String lastName;
+    private String lastName;
 
-    Date createdAt;
+    private Date createdAt;
 
 
     public User( UserDto userDto )
     {
-        id = UUID.randomUUID().toString();
-        name = userDto.getName();
-        lastName = userDto.getLastName();
-        email = userDto.getEmail();
-        createdAt = new Date();
+        this.id = UUID.randomUUID().toString();
+        this.name = userDto.getName();
+        this.lastName = userDto.getLastName();
+        this.email = userDto.getEmail();
+        this.createdAt = new Date();
+    }
+
+    public User(UserDocument userDocument){
+
+        this.id  = userDocument.getId();
+        this.name = userDocument.getName();
+        this.lastName = userDocument.getLastName();
+        this.email = userDocument.getEmail();
+        this.createdAt = userDocument.getCreatedAt();
     }
 
     public String getName()
@@ -39,7 +48,19 @@ public class User
         return id;
     }
 
-    public void update( UserDto userDto )
+    public String getEmail() {
+        return email;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void update(UserDto userDto )
     {
         name = userDto.getName();
         lastName = userDto.getLastName();
