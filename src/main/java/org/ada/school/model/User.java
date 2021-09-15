@@ -5,6 +5,9 @@ import org.ada.school.dto.UserDto;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * The type User.
+ */
 public class User
 
 {
@@ -20,6 +23,11 @@ public class User
     private Date createdAt;
 
 
+    /**
+     * Instantiates a new User.
+     *
+     * @param userDto the user dto
+     */
     public User( UserDto userDto )
     {
         this.id = UUID.randomUUID().toString();
@@ -29,6 +37,11 @@ public class User
         this.createdAt = new Date();
     }
 
+    /**
+     * Instantiates a new User.
+     *
+     * @param userDocument the user document
+     */
     public User(UserDocument userDocument){
 
         this.id  = userDocument.getId();
@@ -38,28 +51,58 @@ public class User
         this.createdAt = userDocument.getCreatedAt();
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public String getId()
     {
         return id;
     }
 
+    /**
+     * Gets email.
+     *
+     * @return the email
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Gets last name.
+     *
+     * @return the last name
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     * Gets created at.
+     *
+     * @return the created at
+     */
     public Date getCreatedAt() {
         return createdAt;
     }
 
+    /**
+     * Update.
+     *
+     * @param userDto the user dto
+     */
     public void update(UserDto userDto )
     {
         name = userDto.getName();
